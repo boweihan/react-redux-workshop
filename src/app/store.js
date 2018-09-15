@@ -1,13 +1,7 @@
-import { applyMiddleware, combineReducers, createStore } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
-import boardReducer from './reducers/board/reducer';
-import controlsReducer from './reducers/controls/reducer';
-
-const reducers = combineReducers({
-  board: boardReducer,
-  controls: controlsReducer,
-});
+import reducers from './reducers';
 
 export default createStore(
   reducers,

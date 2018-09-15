@@ -1,6 +1,6 @@
 {
-  "name": "react-minesweeper",
-  "homepage": "https://davidbanksnz.github.io/react-redux-minesweeper",
+  "name": "react-redux-workshop",
+  "homepage": "https://github.com/boweihan/react-redux-workshop",
   "version": "0.1.0",
   "dependencies": {
     "material-design-iconic-font": "^2.2.0",
@@ -24,12 +24,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "prebuild": "npm run build-css",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "node ./deployment/deploy.js",
-    "build-css": "node-sass-chokidar src/assets/styles/styles.scss -o src/assets/styles/",
-    "watch-css": "npm run build-css && node-sass-chokidar src/assets/styles/styles.scss -o src/assets/styles/ --watch --recursive"
+    "deploy": "node ./deployment/deploy.js"
   }
 }

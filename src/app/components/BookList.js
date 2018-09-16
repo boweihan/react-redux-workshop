@@ -23,7 +23,7 @@ const BookList = ({ heading, books, checkoutBook }) => (
         <BookListItem
           key={book.id}
           {...book}
-          onClick={() => checkoutBook(book.id)}
+          onClick={checkoutBook && (() => checkoutBook(book.id))}
         />
       ))}
     </ul>

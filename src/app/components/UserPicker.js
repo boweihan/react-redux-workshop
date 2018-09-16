@@ -6,7 +6,7 @@ import 'react-dropdown/style.css';
 const UserPicker = ({ options, defaultOption, onChange }) => (
   <Dropdown
     options={options}
-    value={defaultOption}
+    value={defaultOption || options[0]}
     onChange={option => onChange(option.value)}
     placeholder="Select User..."
   />

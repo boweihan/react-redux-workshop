@@ -15,7 +15,13 @@ const style = {
   },
 };
 
-const BookList = ({ heading, books, checkoutBook }) => (
+const BookList = ({
+  heading,
+  books,
+  selectedUser,
+  checkoutBook,
+  checkinBook,
+}) => (
   <div style={style.container}>
     <ListHeading text={heading} />
     <ul style={style.list}>
@@ -23,7 +29,8 @@ const BookList = ({ heading, books, checkoutBook }) => (
         <BookListItem
           key={book.id}
           {...book}
-          onClick={checkoutBook && (() => checkoutBook(book.id))}
+          checkout={checkoutBook && (() => checkoutBook(book, selectedUser))}
+          checkin={checkinBook && (() => checkinBook(book))}
         />
       ))}
     </ul>
@@ -39,7 +46,12 @@ BookList.propTypes = {
       text: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  selectedUser: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }),
   checkoutBook: PropTypes.func,
+  checkinBook: PropTypes.func,
 };
 
 export default BookList;

@@ -9,9 +9,11 @@ const users = (
 ) => {
   switch (action.type) {
     case 'LOAD_USERS_AND_BOOKS':
+      const userList = Api.getUsers();
       return {
         ...state,
-        list: Api.getUsers(),
+        list: userList,
+        selectedUser: userList[0],
       };
     case 'SELECT_USER':
       return {

@@ -6,18 +6,18 @@ const styles = {
     float: 'right',
     padding: 5,
     background: 'none',
-    backgroundColor: '#ccffcc',
+    backgroundColor: '#ffcccc',
   },
 };
 
-const CheckoutButton = ({ onClick }) => (
+const CheckinButton = ({ onClick }) => (
   <button style={styles.button} onClick={onClick}>
-    Check Out
+    Check In
   </button>
 );
 
-CheckoutButton.propTypes = {
+CheckinButton.propTypes = {
   onClick: PropTypes.func,
 };
 
-export default CheckoutButton;
+export default CheckinButton;

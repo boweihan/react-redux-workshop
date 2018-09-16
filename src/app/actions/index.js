@@ -7,7 +7,13 @@ export const selectUser = id => ({
   id,
 });
 
-export const checkoutBook = id => ({
+export const checkoutBook = (book, user) => ({
   type: 'CHECKOUT_BOOK',
-  id,
+  book,
+  user,
+});
+
+export const checkinBook = book => ({
+  type: 'CHECKIN_BOOK',
+  book,
 });

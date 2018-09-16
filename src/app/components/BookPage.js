@@ -2,22 +2,35 @@ import React from 'react';
 
 // redux imports
 import { connect } from 'react-redux';
-import { loadBooks, loadUsers, selectUser, checkoutBook } from '../actions';
+import { loadUsersAndBooks, selectUser, checkoutBook } from '../actions';
 
 // components
 import Header from './Header';
 import BookList from './BookList';
 
+const styles = {
+  book_lists: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
+};
+
 class BookPage extends React.Component {
+  componentDidMount() {
+    this.props.loadUsersAndBooks();
+  }
+
   render() {
     return (
       <div>
         <Header />
-        <BookList
-          books={this.props.books}
-          checkoutBook={this.props.checkoutBook}
-        />
-        <BookList books={this.props.booksForUser} />
+        <div style={styles.book_lists}>
+          <BookList
+            books={this.props.books}
+            checkoutBook={this.props.checkoutBook}
+          />
+          <BookList books={this.props.booksForUser} />
+        </div>
       </div>
     );
   }
@@ -25,7 +38,7 @@ class BookPage extends React.Component {
 
 const getBooksForUser = (books, user) => {
   return books.filter(book => {
-    return books.checkedOutBy.id === user.id;
+    return books.checkedOutBy && books.checkedOutBy.id === user.id;
   });
 };
 
@@ -36,8 +49,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  loadBooks: () => dispatch(loadBooks()),
-  loadUsers: () => dispatch(loadUsers()),
+  loadUsersAndBooks: () => dispatch(loadUsersAndBooks()),
   selectUser: () => dispatch(selectUser()),
   checkoutBook: () => dispatch(checkoutBook()),
 });

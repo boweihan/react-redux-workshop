@@ -1,3 +1,5 @@
+import Api from '../api';
+
 const users = (
   state = {
     users: [],
@@ -6,10 +8,10 @@ const users = (
   action,
 ) => {
   switch (action.type) {
-    case 'LOAD_USERS':
+    case 'LOAD_USERS_AND_BOOKS':
       return {
         ...state,
-        // implement
+        users: Api.getUsers(),
       };
     case 'SELECT_USER':
       return {

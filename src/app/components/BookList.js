@@ -2,8 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BookListItem from './BookListItem';
 
+const style = {
+  list: {
+    flex: 1,
+    listStyle: 'none',
+    paddingLeft: 0,
+  },
+};
+
 const BookList = ({ books, checkoutBook }) => (
-  <ul>
+  <ul style={style.list}>
     {books.map(book => (
       <BookListItem
         key={book.id}

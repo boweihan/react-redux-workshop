@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const styles = {
   listItem: {
-    padding: 20,
+    padding: 10,
     backgroundColor: '#f2f2f2',
     fontFamily: 'Open Sans',
     margin: '2px 0',

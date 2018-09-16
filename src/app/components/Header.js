@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const styles = {
   header: {
@@ -14,10 +15,20 @@ const styles = {
   },
 };
 
-const Header = () => (
+const Header = ({ heading }) => (
   <div style={styles.header}>
-    <h2 style={styles.heading}>Vena Library</h2>
+    <h2 style={styles.heading}>{heading}</h2>
   </div>
 );
+
+Header.propTypes = {
+  heading: PropTypes.string.isRequired,
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+};
 
 export default Header;

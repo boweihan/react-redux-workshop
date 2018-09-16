@@ -32,7 +32,7 @@ class BookPage extends React.Component {
   render() {
     return (
       <div>
-        <Header />
+        <Header users={this.props.users} heading="Vena Library" />
         <div style={styles.book_lists}>
           <BookList
             books={this.props.availableBooks}

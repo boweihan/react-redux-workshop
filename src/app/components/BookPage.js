@@ -32,7 +32,12 @@ class BookPage extends React.Component {
   render() {
     return (
       <div>
-        <Header users={this.props.users} heading="Vena Library" />
+        <Header
+          users={this.props.users}
+          selectedUser={this.props.selectedUser}
+          selectUser={this.props.selectUser}
+          heading="Vena Library"
+        />
         <div style={styles.book_lists}>
           <BookList
             books={this.props.availableBooks}
@@ -51,7 +56,8 @@ class BookPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  users: state.users,
+  users: state.users.list,
+  selectedUser: state.users.selectedUser,
   booksForUser: getBooksForUser(state.books, state.users.selectedUser),
   availableBooks: getAvailableBooks(state.books),
   checkedOutBooks: getCheckedOutBooks(state.books, state.users.selectedUser),
@@ -59,8 +65,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   loadUsersAndBooks: () => dispatch(loadUsersAndBooks()),
-  selectUser: () => dispatch(selectUser()),
-  checkoutBook: () => dispatch(checkoutBook()),
+  selectUser: id => dispatch(selectUser(id)),
+  checkoutBook: id => dispatch(checkoutBook(id)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookPage);

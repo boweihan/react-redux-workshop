@@ -35,11 +35,11 @@ BookList.propTypes = {
   books: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      checkedOutBy: PropTypes.bool.isRequired,
+      checkedOutBy: PropTypes.obj,
       text: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
-  checkoutBook: PropTypes.func.isRequired,
+  checkoutBook: PropTypes.func,
 };
 
 export default BookList;

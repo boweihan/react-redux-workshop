@@ -25,7 +25,7 @@ const BookListItem = ({ onClick, checkedOutBy, text }) => (
 
 BookListItem.propTypes = {
   onClick: PropTypes.func.isRequired,
-  checkedOutBy: PropTypes.bool.isRequired,
+  checkedOutBy: PropTypes.bool,
   text: PropTypes.string.isRequired,
 };
 

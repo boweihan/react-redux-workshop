@@ -1,21 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
-const styles = {
-  header: {
-    backgroundColor: '#424347',
-    padding: 20,
-    margin: 10,
-    marginBottom: 0,
-  },
-  heading: {
-    color: 'white',
-    fontFamily: 'Open Sans',
-    textAlign: 'center',
-  },
-};
+const UserPicker = ({ options, defaultOption, onChange }) => (
+  <Dropdown
+    options={options}
+    value={defaultOption}
+    onChange={option => onChange(option.value)}
+    placeholder="Select User..."
+  />
+);
 
-const UserPicker = () => <Dropdown />;
+UserPicker.propTypes = {
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.any.isRequired,
+      label: PropTypes.string.isRequired,
+    }).isRequired,
+  ).isRequired,
+  defaultOption: PropTypes.shape({
+    value: PropTypes.any.isRequired,
+    label: PropTypes.string.isRequired,
+  }),
+  onChange: PropTypes.func.isRequired,
+};
 
 export default UserPicker;

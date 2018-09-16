@@ -2,7 +2,7 @@ import Api from '../api';
 
 const users = (
   state = {
-    users: [],
+    list: [],
     selectedUser: null,
   },
   action,
@@ -11,12 +11,12 @@ const users = (
     case 'LOAD_USERS_AND_BOOKS':
       return {
         ...state,
-        users: Api.getUsers(),
+        list: Api.getUsers(),
       };
     case 'SELECT_USER':
       return {
         ...state,
-        // implement
+        selectedUser: state.list.find(item => item.id === action.id),
       };
     default:
       return state;

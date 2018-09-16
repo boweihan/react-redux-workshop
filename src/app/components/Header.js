@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import UserPicker from './UserPicker';
 
 const styles = {
   header: {
@@ -15,11 +16,29 @@ const styles = {
   },
 };
 
-const Header = ({ heading }) => (
-  <div style={styles.header}>
-    <h2 style={styles.heading}>{heading}</h2>
-  </div>
-);
+const buildDropDownOptions = users => {
+  return users.map(user => ({
+    value: user.id,
+    label: user.name,
+  }));
+};
+
+const Header = ({ heading, users, selectedUser, selectUser }) => {
+  let options = buildDropDownOptions(users);
+  let defaultOption = options.find(
+    option => option.value === (selectedUser && selectedUser.id),
+  );
+  return (
+    <div style={styles.header}>
+      <h2 style={styles.heading}>{heading}</h2>
+      <UserPicker
+        options={options}
+        defaultOption={defaultOption}
+        onChange={selectUser}
+      />
+    </div>
+  );
+};
 
 Header.propTypes = {
   heading: PropTypes.string.isRequired,
@@ -29,6 +48,11 @@ Header.propTypes = {
       name: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
+  selectedUser: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+  }),
+  selectUser: PropTypes.func.isRequired,
 };
 
 export default Header;

@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CheckoutButton from './CheckoutButton';
-import CheckinButton from './CheckinButton';
 
 const styles = {
   listItem: {
@@ -12,17 +10,13 @@ const styles = {
   },
 };
 
-const BookListItem = ({ checkout, checkin, checkedOutBy, text }) => (
+const BookListItem = ({ checkedOutBy, text }) => (
   <li className="list_item" style={styles.listItem}>
     {text}
-    {checkout && <CheckoutButton onClick={checkout} />}
-    {checkin && <CheckinButton onClick={checkin} />}
   </li>
 );
 
 BookListItem.propTypes = {
-  checkout: PropTypes.func.isRequired,
-  checkin: PropTypes.func.isRequired,
   id: PropTypes.number.isRequired,
   text: PropTypes.string.isRequired,
   checkedOutBy: PropTypes.object,

@@ -25,14 +25,7 @@ const BookList = ({
   <div style={style.container}>
     <ListHeading text={heading} />
     <ul style={style.list}>
-      {books.map(book => (
-        <BookListItem
-          key={book.id}
-          {...book}
-          checkout={checkoutBook && (() => checkoutBook(book, selectedUser))}
-          checkin={checkinBook && (() => checkinBook(book))}
-        />
-      ))}
+      {books.map(book => <BookListItem key={book.id} {...book} />)}
     </ul>
   </div>
 );
@@ -50,8 +43,6 @@ BookList.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
   }),
-  checkoutBook: PropTypes.func,
-  checkinBook: PropTypes.func,
 };
 
 export default BookList;

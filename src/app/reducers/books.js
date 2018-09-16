@@ -6,15 +6,9 @@ const books = (state = [], action) => {
     case 'LOAD_USERS_AND_BOOKS':
       return Api.getBooks();
     case 'CHECKOUT_BOOK':
-      books = [...state];
-      book = books.find(book => book.id === action.book.id);
-      book.checkedOutBy = action.user;
-      return books;
+    // TODO: implement
     case 'CHECKIN_BOOK':
-      books = [...state];
-      book = books.find(book => book.id === action.book.id);
-      book.checkedOutBy = null;
-      return books;
+    // TODO: implement
     default:
       return state;
   }

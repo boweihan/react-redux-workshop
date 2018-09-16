@@ -4,12 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // action imports
-import {
-  loadUsersAndBooks,
-  selectUser,
-  checkoutBook,
-  checkinBook,
-} from '../actions';
+import { loadUsersAndBooks, selectUser } from '../actions';
 
 // selector imports
 import {
@@ -48,13 +43,8 @@ class BookPage extends React.Component {
             books={this.props.availableBooks}
             selectedUser={this.props.selectedUser}
             heading="Available Books"
-            checkoutBook={this.props.checkoutBook}
           />
-          <BookList
-            books={this.props.booksForUser}
-            heading="Your Books"
-            checkinBook={this.props.checkinBook}
-          />
+          <BookList books={this.props.booksForUser} heading="Your Books" />
         </div>
         <BookList
           books={this.props.checkedOutBooks}
@@ -76,8 +66,9 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loadUsersAndBooks: () => dispatch(loadUsersAndBooks()),
   selectUser: id => dispatch(selectUser(id)),
-  checkoutBook: (book, user) => dispatch(checkoutBook(book, user)),
-  checkinBook: book => dispatch(checkinBook(book)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(BookPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(BookPage);

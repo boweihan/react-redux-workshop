@@ -14,4 +14,23 @@ const books = (state = [], action) => {
   }
 };
 
+// selectors
+export const getBooksForUser = (books, user) => {
+  return books.filter(book => {
+    return books.checkedOutBy && books.checkedOutBy.id === user.id;
+  });
+};
+
+export const getAvailableBooks = books => {
+  return books.filter(book => {
+    return !books.checkedOutBy;
+  });
+};
+
+export const getCheckedOutBooks = (books, user) => {
+  return books.filter(book => {
+    return books.checkedOutBy && books.checkedOutBy.id !== user.id;
+  });
+};
+
 export default books;

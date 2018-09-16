@@ -2,7 +2,16 @@ import React from 'react';
 
 // redux imports
 import { connect } from 'react-redux';
+
+// action imports
 import { loadUsersAndBooks, selectUser, checkoutBook } from '../actions';
+
+// selector imports
+import {
+  getBooksForUser,
+  getAvailableBooks,
+  getCheckedOutBooks,
+} from '../reducers/books';
 
 // components
 import Header from './Header';
@@ -26,7 +35,7 @@ class BookPage extends React.Component {
         <Header />
         <div style={styles.book_lists}>
           <BookList
-            books={this.props.books}
+            books={this.props.availableBooks}
             checkoutBook={this.props.checkoutBook}
           />
           <BookList books={this.props.booksForUser} />
@@ -36,16 +45,11 @@ class BookPage extends React.Component {
   }
 }
 
-const getBooksForUser = (books, user) => {
-  return books.filter(book => {
-    return books.checkedOutBy && books.checkedOutBy.id === user.id;
-  });
-};
-
 const mapStateToProps = state => ({
-  books: state.books,
   users: state.users,
   booksForUser: getBooksForUser(state.books, state.users.selectedUser),
+  availableBooks: getAvailableBooks(state.books),
+  checkedOutBooks: getCheckedOutBooks(state.books, state.users.selectedUser),
 });
 
 const mapDispatchToProps = dispatch => ({

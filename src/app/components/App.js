@@ -10,7 +10,3 @@ const App = () => (
 );
 
 export default App;
-// get users
-// get books
-// update checkout state of book
-// waiting list with timer on checked out book

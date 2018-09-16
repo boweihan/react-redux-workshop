@@ -15,13 +15,7 @@ const style = {
   },
 };
 
-const BookList = ({
-  heading,
-  books,
-  selectedUser,
-  checkoutBook,
-  checkinBook,
-}) => (
+const BookList = ({ heading, books, selectedUser }) => (
   <div style={style.container}>
     <ListHeading text={heading} />
     <ul style={style.list}>

@@ -37,9 +37,14 @@ class BookPage extends React.Component {
           <BookList
             books={this.props.availableBooks}
             checkoutBook={this.props.checkoutBook}
+            heading="Available Books"
           />
-          <BookList books={this.props.booksForUser} />
+          <BookList books={this.props.booksForUser} heading="Your Books" />
         </div>
+        <BookList
+          books={this.props.checkedOutBooks}
+          heading="Checked Out By Others"
+        />
       </div>
     );
   }

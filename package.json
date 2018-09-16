@@ -5,8 +5,8 @@
   "dependencies": {
     "material-design-iconic-font": "^2.2.0",
     "normalize.css": "^7.0.0",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.5.0",
+    "react-dom": "^16.5.1",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
@@ -19,7 +19,7 @@
     "eslint-plugin-react": "^7.11.1",
     "gh-pages": "^1.0.0",
     "node-sass-chokidar": "0.0.3",
-    "react-scripts": "1.0.11",
+    "react-scripts": "^1.1.5",
     "redux-devtools-extension": "^2.13.5"
   },
   "scripts": {

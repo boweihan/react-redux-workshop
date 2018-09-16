@@ -7,6 +7,7 @@ const style = {
     backgroundColor: '#f2f2f2',
     fontFamily: 'Open Sans',
     margin: '2px 0',
+    cursor: 'pointer',
   },
 };
 

@@ -4,6 +4,8 @@ const styles = {
   header: {
     backgroundColor: '#424347',
     padding: 20,
+    margin: 10,
+    marginBottom: 0,
   },
   heading: {
     color: 'white',

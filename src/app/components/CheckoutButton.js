@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 const styles = {
   button: {
     float: 'right',
-    padding: 5,
     background: 'none',
     backgroundColor: '#ccffcc',
   },

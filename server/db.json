@@ -1,0 +1,55 @@
+{
+  "books": [
+    {
+      "id": 1,
+      "title": "Hey I'm a book",
+      "author": "Someone"
+    },
+    {
+      "id": 2,
+      "title": "Book Two",
+      "author": "Else"
+    },
+    {
+      "title": "Book Three",
+      "author": "Who",
+      "id": 3
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Filip Stankovic"
+    },
+    {
+      "id": 2,
+      "name": "Bowei Han"
+    }
+  ],
+  "checkOuts": [
+    {
+      "id": 1,
+      "userId": 1,
+      "bookId": 1,
+      "dueInDays": 7,
+      "timestampOut": 1537208400000,
+      "timestampIn": 1537208767516
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "bookId": 1,
+      "dueInDays": 3,
+      "timestampOut": 1537208767516,
+      "timestampIn": null
+    },
+    {
+      "id": 3,
+      "userId": 2,
+      "bookId": 2,
+      "dueInDays": 7,
+      "timestampOut": 1537208767516,
+      "timestampIn": null
+    }
+  ]
+}

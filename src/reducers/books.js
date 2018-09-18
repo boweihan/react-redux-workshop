@@ -1,7 +1,6 @@
 import { BOOKS_FETCH_SUCCESS } from '../actions';
 
 import { getCurrentCheckOuts } from './checkOuts';
-import { getSelectedUser } from './users';
 
 const normalizeBookList = bookList => {
   const books = {};
@@ -57,13 +56,13 @@ export const getAvailableBooks = state => {
 
 export const getBooksCheckedOutByCurrentUser = state => {
   return getCurrentCheckOuts(state)
-    .filter(checkOut => checkOut.userId === getSelectedUser(state).id)
+    .filter(checkOut => checkOut.userId === state.users.selectedUserId)
     .map(checkOut => getBookById(state, checkOut.bookId));
 };
 
 export const getBooksCheckedOutByOtherUsers = state => {
   return getCurrentCheckOuts(state)
-    .filter(checkOut => checkOut.userId !== getSelectedUser(state).id)
+    .filter(checkOut => checkOut.userId !== state.users.selectedUserId)
     .map(checkOut => getBookById(state, checkOut.bookId));
 };
 

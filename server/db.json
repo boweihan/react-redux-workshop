@@ -2,28 +2,157 @@
   "books": [
     {
       "id": 1,
-      "title": "Hey I'm a book",
-      "author": "Someone"
+      "title": "Pragmatic Programmer"
     },
     {
       "id": 2,
-      "title": "Book Two",
-      "author": "Else"
+      "title": "Deep Work"
     },
     {
-      "title": "Book Three",
-      "author": "Who",
-      "id": 3
+      "id": 3,
+      "title": "JavaScript, the Good Parts"
+    },
+    {
+      "id": 4,
+      "title": "YDKJS - Up and Going"
+    },
+    {
+      "id": 5,
+      "title": "YDKJS - Async and Performance"
+    },
+    {
+      "id": 6,
+      "title": "YDKJS - ES6 and Beyond"
+    },
+    {
+      "id": 7,
+      "title": "YDKJS - Types and Grammar"
+    },
+    {
+      "id": 8,
+      "title": "YDKJS - Scopes and Closures"
+    },
+    {
+      "id": 9,
+      "title": "YDKJS - This & Object Prototypes"
+    },
+    {
+      "id": 10,
+      "title": "Mythical Man Month"
+    },
+    {
+      "id": 11,
+      "title": "Code Complete"
+    },
+    {
+      "id": 12,
+      "title": "Peak"
+    },
+    {
+      "id": 13,
+      "title": "The Art of Learning"
+    },
+    {
+      "id": 14,
+      "title": "Effective Java"
     }
   ],
   "users": [
     {
       "id": 1,
-      "name": "Filip Stankovic"
+      "name": "Bowei Han"
     },
     {
       "id": 2,
-      "name": "Bowei Han"
+      "name": "Filip Stankovic"
+    },
+    {
+      "id": 3,
+      "name": "Alda Liu"
+    },
+    {
+      "id": 4,
+      "name": "Sheri Soliman"
+    },
+    {
+      "id": 5,
+      "name": "Catherine Chen"
+    },
+    {
+      "id": 6,
+      "name": "Ehsan Omidi"
+    },
+    {
+      "id": 7,
+      "name": "James Qi"
+    },
+    {
+      "id": 8,
+      "name": "Jacob Steele"
+    },
+    {
+      "id": 9,
+      "name": "Lucy Zhao"
+    },
+    {
+      "id": 10,
+      "name": "Rafiullah Hamedy"
+    },
+    {
+      "id": 11,
+      "name": "Mike Do"
+    },
+    {
+      "id": 12,
+      "name": "Umme Hunny"
+    },
+    {
+      "id": 13,
+      "name": "Ashkan Entezari"
+    },
+    {
+      "id": 14,
+      "name": "Aaron Nwabuoku"
+    },
+    {
+      "id": 15,
+      "name": "Emily Ye"
+    },
+    {
+      "id": 16,
+      "name": "Grady Johnson"
+    },
+    {
+      "id": 17,
+      "name": "Mustafa Haddara "
+    },
+    {
+      "id": 18,
+      "name": "Rohil Gupta"
+    },
+    {
+      "id": 19,
+      "name": "Rachel Zhu"
+    },
+    {
+      "id": 20,
+      "name": "Yi Zhou"
+    },
+    {
+      "id": 21,
+      "name": "Zhan Liau"
+    },
+    {
+      "id": 22,
+      "name": "James MacMahon"
+    },
+    {
+      "id": 23,
+      "name": "Carrie Tanguay"
+    },
+    {
+      "id": 24,
+      "name": "Robin Green"
     }
   ],
   "checkOuts": [
@@ -46,7 +175,7 @@
     {
       "id": 3,
       "userId": 2,
-      "bookId": 2,
+      "bookId": 14,
       "dueInDays": 7,
       "timestampOut": 1537208767516,
       "timestampIn": null

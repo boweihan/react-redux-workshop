@@ -94,3 +94,18 @@ export const fetchBooks = () => dispatch => {
 //     },
 //   };
 // };
+
+export const fetchCheckOuts = () => {
+  return {
+    [RSAA]: {
+      endpoint: API_URL_BASE + 'checkOuts',
+      method: 'GET',
+      types: [
+        types.CHECK_OUTS_FETCH_REQUEST,
+        types.CHECK_OUTS_FETCH_SUCCESS,
+        types.CHECK_OUTS_FETCH_FAILURE,
+      ],
+      headers: HEADERS_BASE,
+    },
+  };
+};

@@ -4,13 +4,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // action imports
-import { fetchUsers, fetchBooks, selectUser } from '../actions';
+import { fetchUsers, fetchBooks, fetchCheckOuts, selectUser } from '../actions';
 
 // selector imports
 import {
-  getBooksForUser,
   getAvailableBooks,
-  getCheckedOutBooks,
+  getBooksCheckedOutByCurrentUser,
+  getBooksCheckedOutByOtherUsers,
 } from '../reducers/books';
 
 // components
@@ -28,6 +28,7 @@ class BookPage extends React.Component {
   componentDidMount() {
     this.props.fetchUsers();
     this.props.fetchBooks();
+    this.props.fetchCheckOuts();
   }
 
   render() {
@@ -61,12 +62,13 @@ class BookPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-  isLoading: state.users.isLoading || state.books.isLoading,
+  isLoading:
+    state.users.isLoading || state.books.isLoading || state.checkOuts.isLoading,
   selectedUser: state.users.selectedUser,
   users: state.users.list,
-  booksForUser: getBooksForUser(state.books, state.users.selectedUser),
-  availableBooks: getAvailableBooks(state.books),
-  checkedOutBooks: getCheckedOutBooks(state.books, state.users.selectedUser),
+  availableBooks: getAvailableBooks(state),
+  booksForUser: getBooksCheckedOutByCurrentUser(state),
+  checkedOutBooks: getBooksCheckedOutByOtherUsers(state),
 });
 
 // These two mapDispatchToProps variables do the exact same thing. The second is a more succint syntax.
@@ -80,6 +82,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = {
   fetchUsers,
   fetchBooks,
+  fetchCheckOuts,
   selectUser,
 };
 

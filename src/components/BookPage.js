@@ -12,6 +12,7 @@ import {
   getBooksCheckedOutByCurrentUser,
   getBooksCheckedOutByOtherUsers,
 } from '../reducers/books';
+import { getSelectedUser } from '../reducers/users';
 
 // components
 import Header from './Header';
@@ -64,8 +65,8 @@ class BookPage extends React.Component {
 const mapStateToProps = state => ({
   isLoading:
     state.users.isLoading || state.books.isLoading || state.checkOuts.isLoading,
-  selectedUser: state.users.selectedUser,
   users: state.users.list,
+  selectedUser: getSelectedUser(state),
   availableBooks: getAvailableBooks(state),
   booksForUser: getBooksCheckedOutByCurrentUser(state),
   checkedOutBooks: getBooksCheckedOutByOtherUsers(state),

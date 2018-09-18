@@ -4,14 +4,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // action imports
-import { loadUsersAndBooks, selectUser } from '../actions';
+import { fetchUsers, fetchBooks, fetchCheckOuts, selectUser } from '../actions';
 
 // selector imports
 import {
-  getBooksForUser,
   getAvailableBooks,
-  getCheckedOutBooks,
+  getBooksCheckedOutByCurrentUser,
+  getBooksCheckedOutByOtherUsers,
 } from '../reducers/books';
+import { getSelectedUser } from '../reducers/users';
 
 // components
 import Header from './Header';
@@ -26,11 +27,15 @@ const styles = {
 
 class BookPage extends React.Component {
   componentDidMount() {
-    this.props.loadUsersAndBooks();
+    this.props.fetchUsers();
+    this.props.fetchBooks();
+    this.props.fetchCheckOuts();
   }
 
   render() {
-    return (
+    let elements = this.props.isLoading ? (
+      <span>Loading...</span>
+    ) : (
       <div>
         <Header
           users={this.props.users}
@@ -52,21 +57,35 @@ class BookPage extends React.Component {
         />
       </div>
     );
+
+    return elements;
   }
 }
 
 const mapStateToProps = state => ({
+  isLoading:
+    state.users.isLoading || state.books.isLoading || state.checkOuts.isLoading,
   users: state.users.list,
-  selectedUser: state.users.selectedUser,
-  booksForUser: getBooksForUser(state.books, state.users.selectedUser),
-  availableBooks: getAvailableBooks(state.books),
-  checkedOutBooks: getCheckedOutBooks(state.books, state.users.selectedUser),
+  selectedUser: getSelectedUser(state),
+  availableBooks: getAvailableBooks(state),
+  booksForUser: getBooksCheckedOutByCurrentUser(state),
+  checkedOutBooks: getBooksCheckedOutByOtherUsers(state),
 });
 
-const mapDispatchToProps = dispatch => ({
-  loadUsersAndBooks: () => dispatch(loadUsersAndBooks()),
-  selectUser: id => dispatch(selectUser(id)),
-});
+// These two mapDispatchToProps variables do the exact same thing. The second is a more succint syntax.
+// const mapDispatchToProps = dispatch => ({
+//   fetchBooks: () => dispatch(fetchBooks()),
+//   fetchUsers: () => dispatch(fetchUsers()),
+//   selectUser: id => dispatch(selectUser(id)),
+// });
+
+// Often, you will see this object instantiated inline in connect function call.
+const mapDispatchToProps = {
+  fetchUsers,
+  fetchBooks,
+  fetchCheckOuts,
+  selectUser,
+};
 
 export default connect(
   mapStateToProps,

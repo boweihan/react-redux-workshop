@@ -19,7 +19,9 @@ const BookList = ({ heading, books, selectedUser }) => (
   <div style={style.container}>
     <ListHeading text={heading} />
     <ul style={style.list}>
-      {books.map(book => <BookListItem key={book.id} {...book} />)}
+      {books.map(book => {
+        return <BookListItem key={book.id} {...book} />;
+      })}
     </ul>
   </div>
 );
@@ -30,7 +32,7 @@ BookList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       checkedOutBy: PropTypes.obj,
-      text: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
   selectedUser: PropTypes.shape({

@@ -30,7 +30,7 @@ BookList.propTypes = {
     PropTypes.shape({
       id: PropTypes.number.isRequired,
       checkedOutBy: PropTypes.obj,
-      text: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
     }).isRequired,
   ).isRequired,
   selectedUser: PropTypes.shape({

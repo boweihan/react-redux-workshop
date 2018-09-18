@@ -10,15 +10,15 @@ const styles = {
   },
 };
 
-const BookListItem = ({ checkedOutBy, text }) => (
+const BookListItem = ({ checkedOutBy, title }) => (
   <li className="list_item" style={styles.listItem}>
-    {text}
+    {title}
   </li>
 );
 
 BookListItem.propTypes = {
   id: PropTypes.number.isRequired,
-  text: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   checkedOutBy: PropTypes.object,
 };
 

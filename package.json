@@ -11,6 +11,7 @@
     "react-dropdown": "^1.6.2",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
+    "redux-api-middleware": "^2.3.0",
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
@@ -26,7 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server": "json-server --w server/db.json --nc -p 8000",
+    "server": "json-server -w server/db.json -p 8000",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",

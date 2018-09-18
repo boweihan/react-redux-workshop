@@ -1,6 +1,5 @@
-export const loadUsersAndBooks = () => ({
-  type: 'LOAD_USERS_AND_BOOKS',
-});
+export * from "./api";
+export * from "./types";
 
 export const selectUser = id => ({
   type: 'SELECT_USER',

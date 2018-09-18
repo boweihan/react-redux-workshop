@@ -1,9 +1,15 @@
-import Api from '../api';
+import { BOOKS_FETCH_SUCCESS } from '../actions';
 
-const books = (state = [], action) => {
+const books = (state = {
+  loading: true,
+  list: []
+}, action) => {
   switch (action.type) {
-    case 'LOAD_USERS_AND_BOOKS':
-      return Api.getBooks();
+    case BOOKS_FETCH_SUCCESS:
+      return {
+        isLoading: false,
+        list: action.payload
+      };
     default:
       return state;
   }
@@ -11,19 +17,19 @@ const books = (state = [], action) => {
 
 // selectors
 export const getBooksForUser = (books, user) => {
-  return books.filter(book => {
+  return books.list.filter(book => {
     return book.checkedOutBy && book.checkedOutBy.id === user.id;
   });
 };
 
 export const getAvailableBooks = books => {
-  return books.filter(book => {
+  return books.list.filter(book => {
     return !book.checkedOutBy;
   });
 };
 
 export const getCheckedOutBooks = (books, user) => {
-  return books.filter(book => {
+  return books.list.filter(book => {
     return book.checkedOutBy && book.checkedOutBy.id !== user.id;
   });
 };

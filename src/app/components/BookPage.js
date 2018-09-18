@@ -4,7 +4,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // action imports
-import { loadUsersAndBooks, selectUser } from '../actions';
+import { fetchUsers, fetchBooks, selectUser } from '../actions';
 
 // selector imports
 import {
@@ -26,11 +26,14 @@ const styles = {
 
 class BookPage extends React.Component {
   componentDidMount() {
-    this.props.loadUsersAndBooks();
+    this.props.fetchUsers();
+    this.props.fetchBooks();
   }
 
   render() {
-    return (
+    let elements = this.props.isLoading ? (
+      <span>Loading...</span>
+    ) : (
       <div>
         <Header
           users={this.props.users}
@@ -52,21 +55,33 @@ class BookPage extends React.Component {
         />
       </div>
     );
+
+    return elements;
   }
 }
 
 const mapStateToProps = state => ({
-  users: state.users.list,
+  isLoading: state.users.isLoading || state.books.isLoading,
   selectedUser: state.users.selectedUser,
+  users: state.users.list,
   booksForUser: getBooksForUser(state.books, state.users.selectedUser),
   availableBooks: getAvailableBooks(state.books),
   checkedOutBooks: getCheckedOutBooks(state.books, state.users.selectedUser),
 });
 
-const mapDispatchToProps = dispatch => ({
-  loadUsersAndBooks: () => dispatch(loadUsersAndBooks()),
-  selectUser: id => dispatch(selectUser(id)),
-});
+// These two mapDispatchToProps variables do the exact same thing. The second is a more succint syntax.
+// const mapDispatchToProps = dispatch => ({
+//   fetchBooks: () => dispatch(fetchBooks()),
+//   fetchUsers: () => dispatch(fetchUsers()),
+//   selectUser: id => dispatch(selectUser(id)),
+// });
+
+// Often, you will see this object instantiated inline in connect function call.
+const mapDispatchToProps = {
+  fetchUsers,
+  fetchBooks,
+  selectUser,
+};
 
 export default connect(
   mapStateToProps,

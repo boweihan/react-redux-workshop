@@ -1,19 +1,20 @@
-import Api from '../api';
+import { USERS_FETCH_SUCCESS } from '../actions';
 
 const users = (
   state = {
     list: [],
     selectedUser: null,
+    isLoading: true
   },
   action,
 ) => {
   switch (action.type) {
-    case 'LOAD_USERS_AND_BOOKS':
-      const userList = Api.getUsers();
+    case USERS_FETCH_SUCCESS:
       return {
         ...state,
-        list: userList,
-        selectedUser: userList[0],
+        list: action.payload,
+        isLoading: false,
+        selectedUser: action.payload[0],
       };
     case 'SELECT_USER':
       return {

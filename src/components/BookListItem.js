@@ -8,11 +8,14 @@ const styles = {
     fontFamily: 'Open Sans',
     margin: '2px 0',
   },
+  text: {
+    fontSize: 14,
+  },
 };
 
 const BookListItem = ({ checkedOutBy, title }) => (
   <li className="list_item" style={styles.listItem}>
-    {title}
+    <span style={styles.text}>{title}</span>
   </li>
 );
 

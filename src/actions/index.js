@@ -1,7 +1,9 @@
-export * from "./api";
-export * from "./types";
+import * as types from './types';
+
+export * from './api';
+export * from './types';
 
 export const selectUser = id => ({
-  type: 'SELECT_USER',
+  type: types.SELECT_USER,
   id,
 });

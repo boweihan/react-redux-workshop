@@ -57,7 +57,11 @@ export const getAvailableBooks = state => {
 export const getBooksCheckedOutByCurrentUser = state => {
   return getCurrentCheckOuts(state)
     .filter(checkOut => checkOut.userId === state.ui.selectedUserId)
-    .map(checkOut => getBookById(state, checkOut.bookId));
+    .map(checkOut => {
+      return {
+        ...getBookById(state, checkOut.bookId),
+      };
+    });
 };
 
 export const getBooksCheckedOutByOtherUsers = state => {

@@ -19,9 +19,7 @@ const BookList = ({ heading, books, selectedUser }) => (
   <div style={style.container}>
     <ListHeading text={heading} />
     <ul style={style.list}>
-      {books.map(book => {
-        return <BookListItem key={book.id} {...book} />;
-      })}
+      {books.map(book => <BookListItem key={book.id} {...book} />)}
     </ul>
   </div>
 );

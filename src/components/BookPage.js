@@ -4,7 +4,13 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 // action imports
-import { fetchUsers, fetchBooks, fetchCheckOuts, selectUser } from '../actions';
+import {
+  fetchUsers,
+  fetchBooks,
+  fetchCheckOuts,
+  selectUser,
+  checkout,
+} from '../actions';
 
 // selector imports
 import {
@@ -48,6 +54,7 @@ class BookPage extends React.Component {
             books={this.props.availableBooks}
             selectedUser={this.props.selectedUser}
             heading="Available Books"
+            checkout={this.props.checkout}
           />
           <BookList books={this.props.booksForUser} heading="Your Books" />
         </div>
@@ -85,6 +92,7 @@ const mapDispatchToProps = {
   fetchBooks,
   fetchCheckOuts,
   selectUser,
+  checkout,
 };
 
 export default connect(

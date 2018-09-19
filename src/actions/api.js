@@ -109,3 +109,25 @@ export const fetchCheckOuts = () => {
     },
   };
 };
+
+export const checkout = (book, user) => {
+  return {
+    [RSAA]: {
+      endpoint: API_URL_BASE + 'checkOuts',
+      method: 'POST',
+      types: [
+        types.CHECK_OUT_REQUEST,
+        types.CHECK_OUT_SUCCESS,
+        types.CHECK_OUT_FAILURE,
+      ],
+      headers: HEADERS_BASE,
+      body: JSON.stringify({
+        bookId: book.id,
+        userId: user.id,
+        dueInDays: 7,
+        timestampOut: new Date().getTime(),
+        timestampIn: null,
+      }),
+    },
+  };
+};

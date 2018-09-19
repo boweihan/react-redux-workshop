@@ -1,4 +1,4 @@
-import { CHECK_OUTS_FETCH_SUCCESS } from '../actions';
+import { CHECK_OUTS_FETCH_SUCCESS, CHECK_OUT_SUCCESS } from '../actions';
 
 const checkOuts = (
   state = {
@@ -12,6 +12,13 @@ const checkOuts = (
       return {
         isLoading: false,
         list: action.payload,
+      };
+    case CHECK_OUT_SUCCESS:
+      const list = [...state.list];
+      list.push(action.payload);
+      return {
+        ...state,
+        list,
       };
     default:
       return state;

@@ -15,12 +15,18 @@ const style = {
   },
 };
 
-const BookList = ({ heading, books, selectedUser }) => (
+const BookList = ({ heading, books, selectedUser, checkout }) => (
   <div style={style.container}>
     <ListHeading text={heading} />
     <ul style={style.list}>
       {books.map(book => {
-        return <BookListItem key={book.id} {...book} />;
+        return (
+          <BookListItem
+            key={book.id}
+            {...book}
+            checkout={checkout && (() => checkout(book, selectedUser))}
+          />
+        );
       })}
     </ul>
   </div>
@@ -39,6 +45,7 @@ BookList.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
   }),
+  checkout: PropTypes.func,
 };
 
 export default BookList;

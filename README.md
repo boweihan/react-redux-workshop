@@ -38,10 +38,10 @@ Redux Devtools - https://chrome.google.com/webstore/detail/redux-devtools/lmhkpm
 
 ### Project Structure
 
-Components - `src/components`
-Action Creators - `src/actions`
-Reducers - `src/reducers`
-DB file - `server/db.json`
+Components - `src/components`<br/>
+Action Creators - `src/actions`<br/>
+Reducers - `src/reducers`<br/>
+DB file - `server/db.json`<br/>
 
 ### Workshop Structure
 
@@ -57,7 +57,7 @@ DB file - `server/db.json`
 3.  Implement validation so that a user can only check out one book at a time
 4.  Implement loading UI for asynchronous requests
 5.  Fully normalize the redux store
-6.  Implement middleware that catches errors in the redux flow and log6. Implement middleware that catches errors in the redux flow and logs them to console
+6.  Implement middleware that catches errors in the redux flow and log. Implement middleware that catches errors in the redux flow and logs them to console
 
 ### Notes
 

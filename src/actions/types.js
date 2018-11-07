@@ -10,4 +10,8 @@ export const CHECK_OUTS_FETCH_REQUEST = 'CHECK_OUTS_FETCH_REQUEST';
 export const CHECK_OUTS_FETCH_SUCCESS = 'CHECK_OUTS_FETCH_SUCCESS';
 export const CHECK_OUTS_FETCH_FAILURE = 'CHECK_OUTS_FETCH_FAILURE';
 
+// TODO: Define and Export Check-Out Action Types
+
+// TODO: Define and Export Check-In Action Types
+
 export const SELECT_USER = 'SELECT_USER';

@@ -109,3 +109,7 @@ export const fetchCheckOuts = () => {
     },
   };
 };
+
+// TODO: implement check-out actions
+
+// TODO: implement check-in actions

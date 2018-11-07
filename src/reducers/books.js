@@ -8,7 +8,7 @@ const normalizeBookList = bookList => {
 
   bookList.forEach(book => {
     byId[book.id] = { ...book };
-    idList.push(book.id)
+    idList.push(book.id);
   });
 
   return {
@@ -38,6 +38,8 @@ const books = (
         // way :) It will only work if we never re-fetch data.
         ...normalizeBookList(action.payload),
       };
+    // TODO: implement check-out
+    // TODO: implement check-in
     default:
       return state;
   }

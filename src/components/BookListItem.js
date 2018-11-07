@@ -13,7 +13,12 @@ const styles = {
   },
 };
 
-const BookListItem = ({ checkedOutBy, title }) => (
+const BookListItem = ({
+  checkedOutBy,
+  title,
+  // TODO: support check-out
+  // TODO: support check-in
+}) => (
   <li className="list_item" style={styles.listItem}>
     <span style={styles.text}>{title}</span>
   </li>

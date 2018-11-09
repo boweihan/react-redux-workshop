@@ -38,8 +38,6 @@ const books = (
         // way :) It will only work if we never re-fetch data.
         ...normalizeBookList(action.payload),
       };
-    // TODO: implement check-out
-    // TODO: implement check-in
     default:
       return state;
   }

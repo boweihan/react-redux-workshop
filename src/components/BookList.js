@@ -20,12 +20,19 @@ const BookList = ({
   books,
   selectedUser,
   // TODO: support check-out
+  checkOut,
   // TODO: support check-in
 }) => (
   <div style={style.container}>
     <ListHeading text={heading} />
     <ul style={style.list}>
-      {books.map(book => <BookListItem key={book.id} {...book} />)}
+      {books.map(book => (
+        <BookListItem
+          key={book.id}
+          {...book}
+          checkOut={checkOut && (() => checkOut(book.id, selectedUser.id))}
+        />
+      ))}
     </ul>
   </div>
 );
@@ -43,6 +50,7 @@ BookList.propTypes = {
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
   }),
+  checkOut: PropTypes.func,
 };
 
 export default BookList;

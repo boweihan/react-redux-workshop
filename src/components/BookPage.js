@@ -10,6 +10,7 @@ import {
   fetchCheckOuts,
   selectUser,
   // TODO: import check-out actions
+  checkOut,
   // TODO: import check-in actions
 } from '../actions';
 
@@ -56,6 +57,7 @@ class BookPage extends React.Component {
             selectedUser={this.props.selectedUser}
             heading="Available Books"
             // TODO: support check-out
+            checkOut={this.props.checkOut}
           />
           <BookList
             books={this.props.booksForUser}
@@ -98,6 +100,7 @@ const mapDispatchToProps = {
   fetchCheckOuts,
   selectUser,
   // TODO: map check-out actions to props
+  checkOut,
   // TODO: map check-in actions to props
 };
 

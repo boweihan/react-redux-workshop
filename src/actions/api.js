@@ -111,5 +111,26 @@ export const fetchCheckOuts = () => {
 };
 
 // TODO: implement check-out actions
+export const checkOut = (bookId, userId) => {
+  return {
+    [RSAA]: {
+      endpoint: API_URL_BASE + 'checkOuts',
+      method: 'POST',
+      types: [
+        types.CHECK_OUT_CREATE_REQUEST,
+        types.CHECK_OUT_CREATE_SUCCESS,
+        types.CHECK_OUT_CREATE_FAILURE,
+      ],
+      headers: HEADERS_BASE,
+      body: JSON.stringify({
+        userId,
+        bookId,
+        dueInDays: 7,
+        timestampOut: 1537208400000,
+        timestampIn: null,
+      }),
+    },
+  };
+};
 
 // TODO: implement check-in actions

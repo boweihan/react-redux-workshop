@@ -13,6 +13,8 @@ const checkOuts = (
         isLoading: false,
         list: action.payload,
       };
+    // TODO: implement check-out
+    // TODO: implement check-in
     default:
       return state;
   }

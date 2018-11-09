@@ -38,8 +38,6 @@ const books = (
         // way :) It will only work if we never re-fetch data.
         ...normalizeBookList(action.payload),
       };
-    // TODO: implement check-out
-    // TODO: implement check-in
     default:
       return state;
   }
@@ -62,6 +60,7 @@ export const getBooksCheckedOutByCurrentUser = state => {
     .map(checkOut => {
       return {
         ...getBookById(state, checkOut.bookId),
+        // TODO: you might need to add something here to get check-in to work!
       };
     });
 };

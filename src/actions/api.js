@@ -112,4 +112,38 @@ export const fetchCheckOuts = () => {
 
 // TODO: implement check-out actions
 
+/*** SAMPLE REQUEST ***
+  @PATCH - http://localhost:8000/checkOuts/14
+
+  BODY
+  {"dueInDays":0,"timestampOut":null,"timestampIn":1541786644576}
+
+  RESPONSE: 200
+  {
+    "userId": 1,
+    "bookId": 5,
+    "dueInDays": 0,
+    "timestampOut": null,
+    "timestampIn": 1541786644576,
+    "id": 14
+  }
+*/
+
 // TODO: implement check-in actions
+
+/*** SAMPLE REQUEST ***
+  @POST - http://localhost:8000/checkOuts
+
+  BODY
+  {"userId":1,"bookId":1,"dueInDays":7,"timestampOut":1541786756800,"timestampIn":null}
+
+  RESPONSE: 200
+  {
+    "userId": 1,
+    "bookId": 1,
+    "dueInDays": 7,
+    "timestampOut": 1541786756800,
+    "timestampIn": null,
+    "id": 15
+  }
+*/

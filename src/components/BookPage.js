@@ -12,6 +12,7 @@ import {
   // TODO: import check-out actions
   checkOut,
   // TODO: import check-in actions
+  checkIn,
 } from '../actions';
 
 // selector imports
@@ -63,6 +64,7 @@ class BookPage extends React.Component {
             books={this.props.booksForUser}
             heading="Your Books"
             // TODO: support check-in
+            checkIn={this.props.checkIn}
           />
         </div>
         <BookList
@@ -102,6 +104,7 @@ const mapDispatchToProps = {
   // TODO: map check-out actions to props
   checkOut,
   // TODO: map check-in actions to props
+  checkIn,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(BookPage);

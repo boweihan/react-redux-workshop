@@ -126,7 +126,7 @@ export const checkOut = (bookId, userId) => {
         userId,
         bookId,
         dueInDays: 7,
-        timestampOut: 1537208400000,
+        timestampOut: new Date().getTime(),
         timestampIn: null,
       }),
     },
@@ -134,3 +134,22 @@ export const checkOut = (bookId, userId) => {
 };
 
 // TODO: implement check-in actions
+export const checkIn = checkOutId => {
+  return {
+    [RSAA]: {
+      endpoint: API_URL_BASE + 'checkOuts/' + checkOutId,
+      method: 'PATCH',
+      types: [
+        types.CHECK_OUT_DELETE_REQUEST,
+        types.CHECK_OUT_DELETE_SUCCESS,
+        types.CHECK_OUT_DELETE_FAILURE,
+      ],
+      headers: HEADERS_BASE,
+      body: JSON.stringify({
+        dueInDays: 0,
+        timestampOut: null,
+        timestampIn: new Date().getTime(),
+      }),
+    },
+  };
+};

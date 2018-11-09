@@ -1,4 +1,8 @@
-import { CHECK_OUTS_FETCH_SUCCESS, CHECK_OUT_CREATE_SUCCESS } from '../actions';
+import {
+  CHECK_OUTS_FETCH_SUCCESS,
+  CHECK_OUT_CREATE_SUCCESS,
+  CHECK_OUT_DELETE_SUCCESS,
+} from '../actions';
 
 const checkOuts = (
   state = {
@@ -7,6 +11,7 @@ const checkOuts = (
   },
   action,
 ) => {
+  let list;
   switch (action.type) {
     case CHECK_OUTS_FETCH_SUCCESS:
       return {
@@ -15,13 +20,24 @@ const checkOuts = (
       };
     // TODO: implement check-out
     case CHECK_OUT_CREATE_SUCCESS:
-      let list = [...state.list];
+      list = [...state.list];
       list.push(action.payload);
       return {
         ...state,
         list,
       };
     // TODO: implement check-in
+    case CHECK_OUT_DELETE_SUCCESS:
+      list = [...state.list];
+      for (let i = 0; i < list.length; i++) {
+        if (list[i].id === action.payload.id) {
+          list.splice(i, 1, action.payload);
+        }
+      }
+      return {
+        ...state,
+        list,
+      };
     default:
       return state;
   }

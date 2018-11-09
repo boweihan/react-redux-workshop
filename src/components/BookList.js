@@ -22,6 +22,7 @@ const BookList = ({
   // TODO: support check-out
   checkOut,
   // TODO: support check-in
+  checkIn,
 }) => (
   <div style={style.container}>
     <ListHeading text={heading} />
@@ -31,6 +32,7 @@ const BookList = ({
           key={book.id}
           {...book}
           checkOut={checkOut && (() => checkOut(book.id, selectedUser.id))}
+          checkIn={checkIn && (() => checkIn(book.checkOutId))}
         />
       ))}
     </ul>
@@ -51,6 +53,7 @@ BookList.propTypes = {
     name: PropTypes.string.isRequired,
   }),
   checkOut: PropTypes.func,
+  checkIn: PropTypes.func,
 };
 
 export default BookList;

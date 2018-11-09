@@ -168,9 +168,9 @@
       "id": 2,
       "userId": 1,
       "bookId": 1,
-      "dueInDays": 3,
-      "timestampOut": 1537208767516,
-      "timestampIn": null
+      "dueInDays": 0,
+      "timestampOut": null,
+      "timestampIn": 1541744304080
     },
     {
       "id": 3,
@@ -183,49 +183,49 @@
     {
       "userId": 1,
       "bookId": 2,
-      "dueInDays": 7,
-      "timestampOut": 1537208400000,
-      "timestampIn": null,
+      "dueInDays": 0,
+      "timestampOut": null,
+      "timestampIn": 1541744419117,
       "id": 4
     },
     {
       "userId": 1,
       "bookId": 3,
-      "dueInDays": 7,
-      "timestampOut": 1537208400000,
-      "timestampIn": null,
+      "dueInDays": 0,
+      "timestampOut": null,
+      "timestampIn": 1541744491213,
       "id": 5
     },
     {
       "userId": 1,
       "bookId": 4,
-      "dueInDays": 7,
-      "timestampOut": 1537208400000,
-      "timestampIn": null,
+      "dueInDays": 0,
+      "timestampOut": null,
+      "timestampIn": 1541744492034,
       "id": 6
     },
     {
       "userId": 1,
       "bookId": 5,
-      "dueInDays": 7,
-      "timestampOut": 1537208400000,
-      "timestampIn": null,
+      "dueInDays": 0,
+      "timestampOut": null,
+      "timestampIn": 1541744492383,
       "id": 7
     },
     {
       "userId": 1,
       "bookId": 6,
-      "dueInDays": 7,
-      "timestampOut": 1537208400000,
-      "timestampIn": null,
+      "dueInDays": 0,
+      "timestampOut": null,
+      "timestampIn": 1541744493425,
       "id": 8
     },
     {
       "userId": 1,
       "bookId": 8,
-      "dueInDays": 7,
-      "timestampOut": 1537208400000,
-      "timestampIn": null,
+      "dueInDays": 0,
+      "timestampOut": null,
+      "timestampIn": 1541744496489,
       "id": 9
     },
     {
@@ -243,6 +243,30 @@
       "timestampOut": 1537208400000,
       "timestampIn": null,
       "id": 11
+    },
+    {
+      "userId": 1,
+      "bookId": 10,
+      "dueInDays": 0,
+      "timestampOut": null,
+      "timestampIn": 1541744496905,
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "bookId": 6,
+      "dueInDays": 7,
+      "timestampOut": 1541744495374,
+      "timestampIn": null,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "bookId": 5,
+      "dueInDays": 7,
+      "timestampOut": 1541744495765,
+      "timestampIn": null,
+      "id": 14
     }
   ]
 }

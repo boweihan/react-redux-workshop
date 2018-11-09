@@ -60,6 +60,7 @@ export const getBooksCheckedOutByCurrentUser = state => {
     .map(checkOut => {
       return {
         ...getBookById(state, checkOut.bookId),
+        checkOutId: checkOut.id,
       };
     });
 };
